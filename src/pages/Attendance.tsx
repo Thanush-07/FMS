@@ -314,6 +314,18 @@ export default function Attendance() {
                       <Clock className="w-3 h-3" />
                       L
                     </Label>
+                      <Label
+                      htmlFor={`${student.id}-late`}
+                      className={cn(
+                        "flex items-center justify-center gap-1 p-2 rounded-lg border cursor-pointer transition-all text-xs",
+                        attendanceData[student.id] === ""
+                          ? "bg-warning text-white border-warning"
+                          : "hover:bg-warning/10 border-border"
+                      )}
+                    >
+                      <Clock className="w-3 h-3" />
+                      OD
+                    </Label>
                   </div>
                 </RadioGroup>
               </motion.div>
