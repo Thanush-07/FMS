@@ -11,6 +11,7 @@ import Academics from "./pages/Academics";
 import Leave from "./pages/Leave";
 import Assessments from "./pages/Assessments";
 import Communication from "./pages/Communication";
+import Counseling from "./pages/Counseling";
 import Reports from "./pages/Reports";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/leave" element={<Leave />} />
           <Route path="/assessments" element={<Assessments />} />
           <Route path="/communication" element={<Communication />} />
+          <Route path="/counseling" element={<Counseling />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

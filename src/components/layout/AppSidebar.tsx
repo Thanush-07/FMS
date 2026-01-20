@@ -14,6 +14,7 @@ import {
   ChevronLeft,
   ChevronRight,
   GraduationCap,
+  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,6 +26,7 @@ const menuItems = [
   { title: "Academics", url: "/academics", icon: BookOpen },
   { title: "Leave", url: "/leave", icon: CalendarDays },
   { title: "Assessments", url: "/assessments", icon: FileText },
+  { title: "Counseling", url: "/counseling", icon: Users },
   { title: "Communication", url: "/communication", icon: MessageSquare },
   { title: "Reports", url: "/reports", icon: BarChart3 },
 ];

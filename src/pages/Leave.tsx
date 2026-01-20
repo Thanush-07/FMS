@@ -52,7 +52,7 @@ const leaveRequests: LeaveRequest[] = [
   },
   {
     id: "2",
-    type: "Sick Leave",
+    type: "Medical Leave",
     fromDate: "2024-01-25",
     toDate: "2024-01-25",
     days: 1,
@@ -63,7 +63,7 @@ const leaveRequests: LeaveRequest[] = [
   },
   {
     id: "3",
-    type: "Duty Leave",
+    type: "On-Duty Leave",
     fromDate: "2024-02-01",
     toDate: "2024-02-03",
     days: 3,
@@ -115,6 +115,7 @@ const statusConfig = {
 
 export default function Leave() {
   const [activeTab, setActiveTab] = useState("apply");
+  const [leaveType, setLeaveType] = useState("");
 
   return (
     <MainLayout>
@@ -137,8 +138,8 @@ export default function Leave() {
       >
         {[
           { type: "Casual Leave", total: 12, used: 4, color: "primary" },
-          { type: "Sick Leave", total: 10, used: 2, color: "secondary" },
-          { type: "Duty Leave", total: 15, used: 3, color: "success" },
+          { type: "Medical Leave", total: 10, used: 2, color: "secondary" },
+          { type: "On-Duty Leave", total: 15, used: 3, color: "success" },
           { type: "Vacation", total: 30, used: 10, color: "warning" },
         ].map((leave, index) => (
           <motion.div
@@ -192,17 +193,15 @@ export default function Leave() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Leave Type</Label>
-                  <Select>
+                  <Select value={leaveType} onValueChange={setLeaveType}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select leave type" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="casual">Casual Leave</SelectItem>
-                      <SelectItem value="sick">Sick Leave</SelectItem>
-                      <SelectItem value="duty">Duty Leave</SelectItem>
-                      <SelectItem value="vacation">Vacation Leave</SelectItem>
-                      <SelectItem value="od">On Duty (OD)</SelectItem>
-                      <SelectItem value="permission">Permission (Short Leave)</SelectItem>
+                      <SelectItem value="medical">Medical Leave</SelectItem>
+                      <SelectItem value="onduty">On-Duty Leave</SelectItem>
+                      <SelectItem value="vacation">Vacation</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -242,14 +241,16 @@ export default function Leave() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label>Supporting Documents (Optional)</Label>
-                <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                  <p className="text-sm text-muted-foreground">
-                    Drag and drop files or click to upload
-                  </p>
+              {(leaveType === "medical" || leaveType === "onduty") && (
+                <div className="space-y-2">
+                  <Label>Supporting Documents (Optional)</Label>
+                  <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer">
+                    <p className="text-sm text-muted-foreground">
+                      Drag and drop files or click to upload
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="flex gap-3 pt-4">
                 <Button type="submit" className="flex-1">
