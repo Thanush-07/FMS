@@ -45,23 +45,30 @@ export function AppSidebar() {
       {/* Logo Section */}
       <div className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-sidebar-accent flex items-center justify-center flex-shrink-0">
-            <GraduationCap className="w-6 h-6 text-white" />
-          </div>
+          {/* Removed GraduationCap icon */}
           <AnimatePresence>
             {!collapsed && (
               <motion.div
                 initial={{ opacity: 0, width: 0 }}
                 animate={{ opacity: 1, width: "auto" }}
                 exit={{ opacity: 0, width: 0 }}
-                className="overflow-hidden"
+                className="overflow-hidden flex items-center"
               >
-                <h1 className="font-serif font-bold text-white text-lg whitespace-nowrap">
-                  Faculty Portal
-                </h1>
-                <p className="text-xs text-white/70 whitespace-nowrap">
-                  Management System
-                </p>
+                {/* Faculty Photo */}
+                <img
+                  src="src/img/vignesh.jpg" // Update path as needed
+                  alt="Faculty Photo"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-white"
+                />
+                {/* Name and Role */}
+                <div className="flex flex-col ml-3">
+                  <span className="font-serif font-bold text-white text-lg whitespace-nowrap">
+                   L.S.Vignesh
+                  </span>
+                  <span className="text-xs text-white/70 whitespace-nowrap mt-1">
+                    Assistant Professor
+                  </span>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
