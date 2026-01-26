@@ -215,9 +215,7 @@ ${memberships.map(m => `${m.society} (ID: ${m.id})`).join('\n')}
       >
         <div>
           <h1 className="page-header font-serif">Faculty Profile</h1>
-          <p className="text-muted-foreground -mt-4">
-            Self-Appraisal Form - Academic Year 2023-24
-          </p>
+         
         </div>
         <Button onClick={handleDownloadProfile} className="bg-secondary hover:bg-secondary/90">
           <Download className="w-4 h-4 mr-2" />
