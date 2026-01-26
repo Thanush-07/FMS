@@ -31,7 +31,7 @@ import {
 // Faculty data based on the Self-Appraisal Form
 const facultyData = {
   // Basic Information
-  name: "J. Vinoth Kumar",
+  name: "L.S.Vignesh",
   employeeId: "FAC2023045",
   designation: "Assistant Professor",
   department: "Artificial Intelligence and Data Science",
@@ -233,7 +233,7 @@ ${memberships.map(m => `${m.society} (ID: ${m.id})`).join('\n')}
         >
           <div className="text-center">
             <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
-              <span className="text-4xl font-bold text-white">JV</span>
+              <span className="text-4xl font-bold text-white">LS</span>
             </div>
             <h2 className="font-serif text-xl font-bold text-foreground">
               {facultyData.name}
